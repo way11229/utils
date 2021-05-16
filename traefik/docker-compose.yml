@@ -13,6 +13,8 @@ services:
             - ${TRAEFIK_CONFIG_PATH}:/traefik.yml #It can be changed to toml
             - ${ACME_PATH}:/acme.json
             - ${LOG_PATH}:/logs
+            - ${CONFIG_PATH}:/configs
+            - ${AUTH_PATH}:/auth
         environment:
             - MAIN_DOMAIN=${MAIN_DOMAIN}
             - ACME_EMAIL=${ACME_EMAIL}

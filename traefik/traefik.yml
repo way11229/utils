@@ -13,9 +13,12 @@ entryPoints:
       tls:
         certResolver: devResolver 
         domains:
-          - main: "{{env MAIN_DOMAIN}}"
+          - main: "{{env "MAIN_DOMAIN"}}"
             sans:
-              - "*.{{env MAIN_DOMAIN}}"
+              - "*.{{env "MAIN_DOMAIN"}}"
+
+api:
+  dashboard: true
 
 log:
   filePath: "/logs/log.json"
@@ -29,6 +32,9 @@ providers:
   docker:
     endpoint: "unix://var/run/docker.sock"
     exposedByDefault: false
+  file:
+    directory: "/configs"
+    watch: true
 
 certificatesResolvers:
   devResolver:

@@ -1,0 +1,11 @@
+http:
+  routers:
+    dashboard:
+      rule: Host(`traefik.{{env "MAIN_DOMAIN"}}`)
+      service: api@internal
+      middlewares:
+        - dashboard-auth
+  middlewares:
+    dashboard-auth:
+      basicAuth:
+        usersFile: "/auth/usersFile"

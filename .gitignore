@@ -1,4 +1,5 @@
 */.env
 */.vscode
 drone/data
-traefik/logs
+traefik/logs/*
+traefik/auth/*
